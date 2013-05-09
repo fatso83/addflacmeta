@@ -1,4 +1,6 @@
 #!/bin/bash
+# Not finished per 2010
+
 # Adds FLAC metadata to flac files that mistakenly have had added ID3 tags
 # Known bugs: doesn't handle file names with consecutive spaces
 #				e.g. "a  b.flac will mistakenly become "a b.flac" and thus result
