@@ -1,7 +1,6 @@
-Create program to remove id3 tags and add the info as real meta flac info.
+ID3 to FLAC comments
+====================
+This program removes id3 tags and adds the info as real meta flac info. It does not (as of today) remove the original id3 info, as future versions might copy more information than the basic info it does today.
 
-Use the following program as inspiration:
-https://github.com/cgoldberg/audioscripts/blob/master/flac_retag.py
-
-Use mutagen:
-http://mutagen.readthedocs.org/en/latest/tutorial.html
+##Usage:
+python id3_to_flac_comments.py my_track.flac
