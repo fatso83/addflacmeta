@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# @author Carl-Erik Kopseng <carlerik $AT$ gmail.com>
 
 import sys,mutagen
 from mutagen.easyid3 import EasyID3
@@ -22,8 +23,7 @@ except mutagen.id3.ID3NoHeaderError:
 	exit(1)
 
 flacinfo = FLAC(filename)
-
-if flacinfo.tags:
+if 'title' in flacinfo.keys():
 	print "This program already has flac information. Skipping ..."
 	exit(0)
 
@@ -33,18 +33,19 @@ artist=audio["artist"]
 track=audio["tracknumber"] 
 genre=audio["genre"]
 date=audio["date"]
-#Not supported by EasyID3
+# Not supported by EasyID3
+# Will need to add additional hooks
 #comment=audio["comment"]
 
-# Keep for later?
+# Uncomment this to delete ID3 info 
 #audio.delete()
 
-#lagre som flacformat
+# Save as FLAC metadata
 flacinfo['artist'] = artist
 flacinfo['title'] = title
 flacinfo['album'] = album
-#flacinfo['comment'] = comment
 flacinfo['date'] = date 
 flacinfo['tracknumber'] = track
 flacinfo['genre'] = genre
+#flacinfo['comment'] = comment
 flacinfo.save()
